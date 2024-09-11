@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb} 
+\usepackage{amsthm}  
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\usepackage[thinc]{esdiff}
+
+\usepackage{geometry}
+
+\usepackage{hyperref}        
+
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+\usepackage[french]{babel}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{toc}{%
+	\fancyhf{}%
+	\fancyhead[L]{\rightmark}%
+	\fancyhead[R]{\thepage}%
+}
+
+\pagestyle{toc}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemme}
+\newtheorem{cor}{Corollaire}
+\newtheorem{rem}{Remarque}
+\newtheorem{rap}{Rappel}
+\newtheorem{dem}{Démonstration}
+\newtheorem{defi}{Définition}
+\newtheorem{ex}{Exemple}
+
+\begin{document}
+	\begin{titlepage}
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+		\center
+		
+		\HRule\\[0.4cm]
+		
+		\textsc{\Large Algèbre M1 MIC}\\[0.5cm]
+		\textsc{\large Notes de cours}\\[0.5cm]
+		
+		\HRule\\[1.5cm]
+		
+		{\large\textit{Auteur}}\\
+		Thomas \textsc{Arrous}
+		
+		
+		\vfill\vfill\vfill
+		
+		{\large\today}
+		
+		\vfill
+		
+	\end{titlepage}
+	
+	\tableofcontents
+	\newpage
+
+	\input{./contents/index.tex}
+\end{document}

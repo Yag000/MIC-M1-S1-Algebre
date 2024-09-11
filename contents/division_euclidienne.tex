@@ -1,0 +1,515 @@
+\section{Division euclidienne}
+\begin{thm}[Division euclidienne]
+	$\forall$ a $\in$ $\mathbb{Z}$, $\forall$ b $\geq$ 1, $\exists$ ! (q,r) $\in$ $\mathbb{Z}^2$ tel que : 
+	\begin{center}
+		$\left\{
+			\begin{array}{ll}
+				\mbox{a = bq + r} \\
+				0 \leq r < b
+			\end{array}
+		\right.$
+		avec q = quotient et r = reste. \\
+	\end{center}
+	On dit que :
+	$\left\{
+	\begin{array}{ll}
+		\mbox{b divise a} \\
+		\mbox{a est un multiple de b}
+	\end{array}
+	\right.$
+	si $\exists$ k tel que a = bk on note b$\mid$a. \\
+	C'est une relation d'ordre sur $\mathbb{N}$ = \{0, 1 ,2 , ...\} \\
+	Plus grand élément : 0 \\
+	Plus petit élément : 1 \\
+\end{thm}
+\begin{rap}[relation d'ordre]
+	Dans un ensemble E, on appelle relation d'ordre, notée ici R à la fois :\\
+	$\left\{
+	\begin{array}{ll}
+		\mbox{réflexive : pour tout x de E, x R x}\\
+		\mbox{antisymétrique : pour tous les x et y de E tels que x R y et y R x, alors x = y}\\
+		\mbox{transitive : pour tous les x, y et z de E tels que x R y et y R z, alors x R z}\\
+	\end{array}
+	\right.$
+\end{rap}
+\begin{defi}[pgcd/ppcm]
+	Soit $a_{1}, a_{2}, ..., a_{k} \in \mathbb{Z}$
+	leur pgcd, noté $a_{1} \wedge ... \wedge a_{k} $
+	est le plus grand diviseur commun à $a_{1}$ , ..., $a_{k}$ dans $\mathbb{N}$ pour la relation.
+\end{defi}
+\begin{ex}
+	exemple : $0 \wedge a = a$
+\end{ex}
+\begin{defi}
+	le ppcm est définit de façon analogue ppcm ($a_{1}, ..., a_{k}) = a_{1} \lor ... \lor a_{k}$.
+\end{defi}
+\begin{prop}[Identité de Bézout]
+	$\forall$ a,b $\in$ $\mathbb{Z}$, $d = a \wedge b$,
+	$\exists$ (u,v) $\in$ $\mathbb{Z}$ tel que au + bv = d 
+\end{prop}
+\begin{dem}
+	preuve algo d'Euclide étendu.
+\end{dem}
+\begin{ex}[Algo d'euclide étendu]
+	368 $\wedge$ 117 = ? \\
+	\begin{tabular}{|c||c|c|c|c|c|c|}
+		\hline
+		étapes & 1 & 2 & 3 & 4 & 5 & 6\\
+		\hline
+		(r, u, v) & (368, 1, 0) & (117, 0, 1) & (17, 1, -3) & (15, -6, 19) & (2, 7, -22) & (1, -55, 173) \\ 
+		\hline
+		(r', u', v') & (117, 0, 1) & (17, 1, -3) & (15, -6, 19) & (2, 7, -22) & (1, -55, 173) & (0, *, *) \\ 
+		\hline
+		r - $\alpha$r' = new r & 368 - 3$\times$117 = 17 & 117 - 6$\times$17 = 15 & 17 - 15 = 2 & 15 - 7$\times$2 = 1 & 2 - 2$\times$1 = 0 &\\
+		\hline
+	\end{tabular}
+	On a : 368$\times$(-55) + 117$\times$173 =1\\
+	Donc : 368 $\wedge$ 117 = 1
+\end{ex}
+\begin{defi}
+	Soit a,b $\in$ $\mathbb{Z}$ On dit que a et b sont premier entre eux si $a \wedge b = 1$.
+\end{defi}
+\begin{defi}
+	Soit n $\in$ $\mathbb{N}$* = \{1,2,...\}
+	On appelle indicatrice d'Euler de n, et on notre $\phi$(n) le nombre d'éléments de \{1,...,n\} premier avec n.
+\end{defi}
+\begin{ex}
+	$\phi$(1) = 1 , 
+	$\phi$(2) = 1 , 
+	$\phi$(3) = 2 , 
+	$\phi$(4) = 2 .
+\end{ex}
+\begin{defi}
+	Un nombre n est premier s'il admet exactement deux diviseur positifs
+\end{defi} 
+\begin{ex}
+	2,3,5,7,11 ...
+\end{ex} 
+\begin{thm}[Bézout]
+	$\forall$ a,b $\in$ $\mathbb{Z}$ si $\exists$ u,v $\in$ $\mathbb{Z}$ tq au + bv = 1 alors $a \wedge b = 1$
+\end{thm}
+\begin{dem}
+	Soit d un diviseur commun à a et b.\\
+	d|a, d|b => d|au+bv = 1 => d = 1
+\end{dem}
+\begin{lem}[Lemme d'Euclide]
+	Soit a, b $\in$ $\mathbb{Z}$ et p premier.\\
+	Si p|ab alors p|a ou p|b
+\end{lem}
+
+\begin{cor}
+	Soit a $\in$ $\mathbb{Z}$, p premier. Alors, soit p divise a, soit $p \wedge a = 1$.
+\end{cor}
+\begin{cor}
+ Si p est premier, alors $\phi$(p) = p-1.\\
+  n est premier <=> $\phi$(n) = n-1.
+\end{cor}
+\begin{lem}[Lemme de Gauss]
+	Soit a,b,c $\in$ $\mathbb{Z}$.
+	\begin{center}
+		Si 
+		$\left\{
+		\begin{array}{ll}
+			\mbox{a|bc} \\
+			a \wedge b
+		\end{array}
+		\right.$
+		alors a|c
+	\end{center}
+\end{lem}
+\begin{cor}
+	Tout nombre n $\in$ $\mathbb{N}$ s'écrit sous la forme n = $p_{1}^{\alpha _{1}} ... p_{k}^{\alpha _{k}}$ où $p_{i}$ premier 2 à 2 différents, $\alpha _{i}$ $\geq$ 1 unique à permutation près.
+\end{cor}
+\begin{cor}
+	Si p premier et $\alpha$ $\geq$ 1 \\
+			$\phi(p^{\alpha})$ = $p^{\alpha -1}$ (p-1) \\
+			= $p^{\alpha}$ - $p^{\alpha -1}$
+\end{cor}
+\begin{dem}
+	Parmi \{1, ... $p^{\alpha}$\}\\
+	si $a \wedge p^{\alpha} \not= 1$ => $\exists$ 0 < $\beta$ $\leq$ $\alpha$, $p^{\alpha} \wedge a = p ^{\beta}$\\
+	=> Les nombres qui ne sont pas premier avec $p^{\alpha}$ sont les multiples de p.\\
+	\{p,2p,3p,...$p^{\alpha-1}$p\}\\
+	Il y en a $p^{\alpha-1}$ donc : \\
+	$\phi$ ($p^{\alpha}$) 	= $p^{\alpha}$ - $p^{\alpha-1}$
+							= $p^{\alpha-1}$(p-1)
+\end{dem}					
+	
+\begin{thm}[petit théorème de Fermat]
+	Si p est premier et a $\in$ $\mathbb{Z}$ alors $a^{p}$ $\equiv$ a [p]
+\end{thm}
+\begin{lem}
+	Soit p premier et 1 $\leq$ n $\leq$ p-1 un entier alors p divise $\binom{p}{n}$
+\end{lem}
+\begin{dem}
+	$\binom{p}{n} = \frac{p!}{n!(p-n)!} = p\frac{(p-1)!}{n!(p-n)!}$\\
+	n<p, p-n<p.
+\end{dem}
+\begin{dem}
+	Preuve par récurrence du théorème de Fermat:\\
+	$0^{p} = 0$ $\equiv$ 0 [p]\\
+	Supposons que : $a^{p} \equiv a[p]$\\
+	(a+1)$^{p}  = \sum_{k=0}^{p} \binom{p}{k} a^{k}$
+	
+				= $a ^{p} + 1^{p} + \sum_{k=1}^{p-1} \binom{p}{k} a ^{k}$  (HR)
+				
+				$\equiv$ a+1[p]
+\end{dem}
+\begin{cor}
+	Soit p premier et a $\in$ $\mathbb{Z}$ premier avec p.\\
+	Alors $a^{p-1}\equiv 1 [p]$
+\end{cor}
+\begin{dem}
+	$a^{p} \equiv a[p]$ => p | $a^{p}$ -a = a( $a^{p-1}$ -1)\\
+	lemme de Gauss => p | $a^{p-1} -1$ => $a^{p-1}$ $\equiv$ 1[p]\\
+	
+	$(\mathbb{Z}/n\mathbb{Z})^{\times}$ = \{[a] $\in$ $\mathbb{Z}/n\mathbb{Z}$ tel que $\exists$ [b] $\in$ $\mathbb{Z}/n\mathbb{Z}$ tel que [ab] = [1]\}
+\end{dem}
+\begin{ex}
+	$(\mathbb{Z}/2\mathbb{Z})^{\times}$ = \{[1]\}
+	
+	$(\mathbb{Z}/3\mathbb{Z})^{\times}$ = \{[1],[2]\}
+	
+	$(\mathbb{Z}/4\mathbb{Z})^{\times}$ = \{[1],[3]\}
+\end{ex}
+\begin{prop}
+	$(\mathbb{Z}/n\mathbb{Z})^{\times}$ forme un groupe abélien pour la multiplication.
+\end{prop}
+\begin{prop}
+	|$(\mathbb{Z}/n\mathbb{Z})^{\times}$| = $\phi$(n)
+\end{prop}
+\begin{lem}
+	Soit a, n $\in$ $\mathbb{Z}$, [a] $\in$ $\mathbb{Z}/n\mathbb{Z}$ est inversible <=> a $\wedge$ n = 1
+\end{lem}
+\begin{dem}
+	Si a est inversible mod n => $\exists$ b $\in$ $\mathbb{Z}$ tq ab $\equiv$ 1[n]
+	
+			=> $\exists$ k $\in$ $\mathbb{Z}$ | ab - 1 = kn
+			
+			<=> ab - kn =1
+			
+			=> a$\wedge$n = 1\\
+	Si a$\wedge$n = 1, alors $\exists$ u,v tq au+nv = 1
+	
+	<=> au -1 = -nv
+	
+	=> au $\equiv$ 1[n]
+\end{dem}
+\begin{prop}
+	Soit a $\in$ $\mathbb{Z}/n\mathbb{Z}$.
+	
+	Alors $a\wedge n = 1$ <=> a engendre le groupe $(\mathbb{Z}/n\mathbb{Z}, +)$
+\end{prop}
+\begin{dem}
+	Si a$\wedge$n =1\\
+	alors $\exists$ b tq ab = $\sum_{i=1}^{b} a$ = a+a+ ... +a (b fois) $\equiv$ 1[n]
+	
+	=> 1 $\in$ <a> (sous groupe engendré par a)
+	
+	=> <a> = $\mathbb{Z}/n\mathbb{Z}$\\
+	Si <a> = $\mathbb{Z}/n\mathbb{Z}$
+	
+	=> 1$\in$<a>
+	
+	=> $\exists$ b | a+a+ ... +a (b fois) = $\sum_{i=1}^{b} a$ = ab $\equiv$ 1[n]
+	
+\end{dem}
+\begin{cor}
+	Soit a $\in$ $\mathbb{Z}/n\mathbb{Z}$\\
+		$a^{\phi(n)} \equiv 1[n]$
+\end{cor}
+\begin{dem}
+	Preuve d'après le thm de Lagrange, l'ordre d de a divise $\phi$(n) 
+	
+	=> $(a^{d})^{?} = 1^{?} = 1 = \phi(n)$
+\end{dem}
+\begin{rem}
+	Si n est premier $\phi$(n) = n-1
+	=> $a^{n-1}$ $\equiv$ 1 [n]
+\end{rem}
+\begin{cor}
+	($\mathbb{Z}/n\mathbb{Z}$, +, $\times$) est un corps <=> n est premier.
+\end{cor}
+\begin{dem}
+	$\mathbb{Z}/n\mathbb{Z}$ est un corps
+	
+	<=> $(\mathbb{Z}/n\mathbb{Z})^{\times}$ = $\mathbb{Z}/n\mathbb{Z}\textbackslash\{0\}$
+	
+	<=> $\phi(n)$ = n-1
+	
+	<=> n est premier
+\end{dem}
+\begin{prop}
+	Soit p premier, le groupe $(\mathbb{Z}/p\mathbb{Z})^{\times}$ est cyclique (d'ordre p-1)
+\end{prop}
+\begin{lem}
+	Soit n $\geq$ 1, alors n = $\sum_{d|n\ et\ d \geq 0} \phi(d)$
+\end{lem}
+\begin{dem}
+	Soit $\nu_{d}$ le nombre d'éléments de $\mathbb{Z}/n\mathbb{Z}$ d'ordre d.\\
+	On a :
+	
+	n = $\sum_{d|n} \nu_{d}$
+	
+	$\mathbb{Z}/n\mathbb{Z}$ = $\bigsqcup_{d|n}$ \{a$\in$ $\mathbb{Z}/n\mathbb{Z}$ | a est d'ordre d\}
+	
+	Or, $\mathbb{Z}/n\mathbb{Z}$ ne contient qu'un seul sous groupe d'ordre d, à savoir $\frac{n}{d}\times\mathbb{Z}/n\mathbb{Z}$
+	
+	=> $\nu_{d}$ = nombre de générateur de $\frac{n}{d}\times\mathbb{Z}/n\mathbb{Z}$
+\end{dem}
+\begin{ex}
+	n = 36, d = 4 \\
+	9$\mathbb{Z}$/36$\mathbb{Z}$ = \{ 0,9,18,29 \} \\
+	d'après la prop de tout à l'heure, on obtient que : $\nu_{d}$ = $\phi$(d)
+\end{ex}
+\begin{ex}
+	$\mathbb{Z}$/6$\mathbb{Z}$
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			ordre & 1 & 2 & 3 & 6 \\
+			\hline
+			& 0 & 3 & 2; 4 & 1; 5\\
+			\hline
+			sous groupe engendré & \{0\} & \{0; 3\} & \{0; 2; 4\} & \{0; 1; 2; 3; 4; 5\}\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{ex}
+\begin{prop}
+	Soit $\mathbb{K}$ un corps fini. Alors $\mathbb{K}^{\times}$ est cyclique
+\end{prop}
+\begin{dem}
+	Soit $\nu_{d}$ = nombre d'éléments d'ordre d dans $K^{\times}$.
+	
+	Soit n = |$K^{\times}$|
+	
+	Soit x $\in$ $K^{\times}$ d'ordre d.\\
+	Alors <x> contient  d éléments = \{$1,x,x^{2}, ..., x^{d-1}$\}
+	
+	$\forall$ y $\in$ <x>, $y^{d}$ = 1
+	
+	=> y est racine du polynôme $Y^{d} -1$ $\in$ $\mathbb{K}[Y]$\\
+	Comme $\mathbb{K}$ est un corps, ce polynôme admet un nombre $\leq$ d racines.
+	
+	=> les racines de $y^{d}$ -1 sont exactement les éléments de <x> = $\mathbb{Z}/d\mathbb{Z}$.
+	
+	=> tous les éléments d'ordre d de $\mathbb{K}^{\times}$ sont dans <x>
+	
+	=> il contient $\phi$ (d) éléments d'ordre d\\
+	Conclusion : 	
+	
+	Soit $\nu_{d}$ = 0
+	
+	soit  $\nu_{d}$ = $\phi$(d)
+		
+	=>  $\nu_{d}$ <= $\phi$(d) $\forall$ d\\
+	n = $\sum_{d|n} \nu_{d}$ = $\sum_{d|n} \phi(d)$
+	
+	=> On doit avoir $\nu_{d}$ = $\phi$(d) $\forall$ d
+	(sinon la somme de gauche serait < à la somme de droite).\\
+	En particulier , $\nu_{n}$ = $\phi$(n) $\not=$ 0
+	
+	=> $K^{\times}$ contient au moins un élément d'ordre n
+	
+	=>  $K^{\times}$ est cyclique.\\
+	$(\mathbb{Z}/p\mathbb{Z})^{\times}$ est cyclique \\
+	$\exists$ a $\in$ $\mathbb{Z}$ tq $\mathbb{Z}$/p$\mathbb{Z}$ = {$1,a,a^{2}, ..., a^{p-1}$}
+	
+	$a^{k} = b[p]$
+\end{dem}
+\begin{prop}
+	Soit p un nombre premier impair et $\alpha$ $\geq$ 2 un entier.\\
+	Alors $(\mathbb{Z}/p^{\alpha}\mathbb{Z})^{\times}$ est cyclique (d'ordre $\phi(p^\alpha) = p^{\alpha-1} (p-1)$)\\
+	Il suffit de trouver un élément d'ordre $p^{\alpha}(p-1)$
+\end{prop}
+\begin{rem}
+	$p^{\alpha -1} \wedge (p-1) = 1$
+\end{rem}
+\begin{prop}
+	Soit G un groupe, a un élément d'ordre k, b un élément d'ordre l.\\
+	Si a et b commutent et si k $\wedge$ l = 1, alors ab est d'ordre kl.
+	
+	$/!\backslash$ k $\wedge$ l $\not=$ 1, ab n'est pas forcément d'ordre kvl.
+	
+	$a \times a^{-1} =1$\\
+	$/!\backslash$ Si a et b ne commutent pas, c'est faux.
+	
+		Dans $S_{3}$ (1 2) (1 2 3)
+		
+		(1 2) (1 2 3) = (2 3)
+		
+	=> il suffit de trouver un élément d'ordre p-1 et un autre d'ordre $p^{\alpha -1}$
+\end{prop}
+\begin{lem}
+	Soit k $\in$ $\mathbb{N}$, $\exists$ $\lambda_{k}$ $\in$ $\mathbb{N}$ premier avec p tel que $(1+p)^{p^{k}}$ = 1 + $\lambda_{k}p^{k+1}$
+\end{lem}
+\begin{dem}
+	k = 0\\
+	$(1+p)^{p^{0}} = (1+p)^{1} = 1+p $
+	
+	$= 1+\lambda_{0} p^{0+1}$ avec $(\lambda_{0} = 1)$
+	\\\newline
+	Supposons le résultat au rang k vrai.\\
+	$(1+p)^{p^{k+1}} =  ((1+p)^{p^{k+}})^{p}$
+	
+	$= (1+\lambda_{k}p^{k+1})^{p}$
+	
+	$= \sum_{i=0}^{p} (i parmis p) \lambda_{k}^{i} p^{(k+1)i}$
+	
+	$= 1 + \lambda_{k}p^{k+2} + p^{k+3} u$ avec u $\in \mathbb{Z}$\\
+	$(1+p)^{p^{k+1}} = 1 + (\lambda_{k} + up)p^{k+2}$ avec $ (\lambda_{k} + up) = \lambda_{k+1}$
+\end{dem}
+\begin{cor}
+	1+p $\in \mathbb{Z}/p^{\alpha}\mathbb{Z}$ est d'ordre $p^{\alpha-1}$
+\end{cor}
+\begin{dem}
+	$(1+p)^{p^{\alpha -1}} = 1 + \lambda_{\alpha-1}\ p^{\alpha}$ $\equiv 1[p^{\alpha}]$
+	
+	=> l'ordre de 1+p divise $p^{\alpha-1}$\\
+	$(1+p)^{p^{\alpha -2}} = 1 + \lambda_{\alpha-2}p^{\alpha-1}$\\
+	Si on avait 1 + $\lambda_{\alpha-2} p^{\alpha-1} \equiv 1[p^{\alpha}]$
+	
+	=> $p^{\alpha} | \lambda_{\alpha -2} p^{\alpha-1}$
+	
+	=> $p | \lambda_{\alpha -2} impossible$
+	
+	=> $(1+p)^{p^{\alpha-2}}\not\equiv 1[p^{\alpha}]$
+\end{dem}
+\begin{prop}
+	Il existe un élément d'ordre p-1 dans $(\mathbb{Z}/p^{\alpha}\mathbb{Z})^{\times}$
+\end{prop}
+\begin{dem}
+	Soit 
+	$\begin{array}{ccccc}
+		\psi & : & \mathbb{Z}/ p^{\alpha}\mathbb{Z} & \to &  \mathbb{Z}/p\mathbb{Z} \\
+		& & [n] & \mapsto & [n] \\
+	\end{array}$\\ 
+=> induit $\psi:(\mathbb{Z}/ p^{\alpha}\mathbb{Z})^{\times} \to (\mathbb{Z}/p\mathbb{Z})^{\times}$ morphisme de groupe.\\
+($\mathbb{Z}/p\mathbb{Z})^{\times}$ contient un élément x d'ordre p-1.\\
+$\psi$ est surjectif => $\exists$ y $\in$ ($\mathbb{Z}/p^{\alpha}\mathbb{Z})^{\times}$ tel que $\psi$(y) = x.\\
+=> l'ordre de y est un multiple de p-1.\\
+Si d = l'ordre de y
+
+$y^{d} = 1 => \psi(y^{d}) = \psi(1) = 1$
+
+et $\psi(y^{d}) = \psi(y)^{d} =x^d$
+
+=> p-1|d
+
+(TODO)
+\end{dem}
+\begin{prop}
+	$(\mathbb{Z}/2^{\alpha}\mathbb{Z})^{\times}$ est isomorphe à :
+	
+	$\left\{
+	\begin{array}{ll}
+		\{1\} \mbox{ si } \alpha = 1 \\
+		\mathbb{Z}/2\mathbb{Z} \mbox{ si } \alpha =2 \\
+		\mathbb{Z}/2^{\alpha-2}\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \mbox{ si } \alpha \geq3
+	\end{array}
+	\right.$
+\end{prop}
+\begin{ex}
+	$\mathbb{Z}/8\mathbb{Z} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \not\cong \mathbb{Z}/4\mathbb{Z}$
+	
+	$(\mathbb{Z}/8\mathbb{Z})^{\times} = \{1,3, 5, 7\}$
+	
+	$3^{2} = 9 \equiv 1[8]$
+	
+	$5^2 = 25 = 1[8]$
+	
+	$7^2 \equiv 1[8]$
+\end{ex}
+\begin{lem}
+	Soit k $\in$ $\mathbb{N}$, 
+	
+	$\exists$ $\mu_{k}$ impair tel que $5^{2^{k}} = 1 + 2^{k+2}\mu_{k}$\\
+\end{lem}
+\begin{dem}
+	Supposons $\alpha \geq3$.
+	
+	$\psi : (\mathbb{Z}/2^{\alpha}\mathbb{Z})^{\times} \to (\mathbb{Z}/4\mathbb{Z})^{\times} \cong \mathbb{Z}/2\mathbb{Z}$\\
+	$\psi(2^\alpha) = 2^{\alpha-1}$\\
+	$\psi$(3) = 3
+	
+	=> 3 est d'ordre pair. Ordre (3) = 2d.\\\newline
+	$3^{d}$ est d'ordre 2.\\
+	$S: (\mathbb{Z}/4\mathbb{Z})^{\times} -> (\mathbb{Z}/2^{\alpha -1}Z)^{\times}
+				[1] |-> [1]
+				[3] |-> [3^{d}]$\\
+	$S \circ \phi = id$
+	
+	$f : (\mathbb{Z}/2^{\alpha}\mathbb{Z})^{\times} -> ker(\phi) x (\mathbb{Z}/4\mathbb{Z})^{\times}
+							[n] |-> [n s(n)^{-1}, \phi(n)]$\\
+	Ordre à gauche = ordre à droite = $\phi(2^{\alpha}) = 2^{\alpha -1}$
+	
+	|Ker ($\psi$)| = $\frac{|(\mathbb{Z}/2^{\alpha}\mathbb{Z})^{\times}|}{|(\mathbb{Z}/4\mathbb{Z})^{\times}|}$ = $2^{\alpha-2}$\\
+	5 $\in$ ker $\psi$ et 5 est d'ordre $2^{\alpha-2}$\\
+	=> 5 engendre ker($\phi$)\\
+	$(ker(\phi)) \times (\mathbb{Z}/4\mathbb{Z})^{\times}$ est engendré par la famille \{(5,1), (1,3)\} \\
+	(5, 1) = f(5)\\
+	(1, 3) = f(3)
+	
+	=> f est surjectif. 
+	
+	Comme les deux groupes ont le même ordre, f est une bijection => c'est un iso.\\
+	$5^{2^{\alpha-2}} = 1+ \mu_{\alpha-3}2^\alpha$
+	
+	$\equiv 1[2^\alpha]$\\
+	=> l'ordre de 5 divise $2^{\alpha-2}$\\
+	$5^{2^k} = 1+ \mu_{\alpha-3}2^{k+2}$, avec k < $\alpha-2$\\
+	Si c'était $\equiv 1 [2^\alpha]$
+	
+	=>$2^{\alpha} | (2^{k+2}\mu_{k} +1 -1)$
+	
+	=>$2 | 2^{\alpha-k-2} | \mu_{k}$
+\end{dem}
+\begin{thm} des restes chinois
+	
+	Soit a,b >= 2 premiers entre eux alors on a un isomorphisme d'anneau.
+	
+	$\mathbb{Z}/ab\mathbb{Z} \cong \mathbb{Z}/a\mathbb{Z} \times \mathbb{Z}/b\mathbb{Z}$
+\end{thm}
+\begin{cor}
+	Soit $n \in \mathbb{N}*$\\
+	Si $n = 2^{\alpha} p_{1}^{\alpha_{1}} p_{k}^{\alpha_{k}}$\\
+	où  $\alpha, \alpha_{i} >= 0$ et $p_{1}, ..., p_{k}$ sont premiers, différents deux à deux, alors :
+	
+	$(\mathbb{Z}/n\mathbb{Z})^{\times} \cong$
+	
+	$(\mathbb{Z}/2^{\alpha}\mathbb{Z})^{\times}$
+	$\times (\mathbb{Z}/p_{1}^{\alpha_{1}}\mathbb{Z})^{\times}\ \times\ ...\ \times$
+	$(\mathbb{Z}/p_{k}^{\alpha_{k}}\mathbb{Z})^{\times}$
+	
+\end{cor}
+\begin{thm}
+	Soit : 
+	$\begin{array}{ccccc}
+		f & : & \mathbb{Z}/ab\mathbb{Z} & \to &  \mathbb{Z}/a\mathbb{Z} \times \mathbb{Z}/b\mathbb{Z} \\
+		& & [n] & \mapsto & ([n], [n]) \\
+	\end{array}$\\ 
+
+	Si n $\in$ ker(f), n$\equiv$0[a]
+	
+						n$\equiv$0[b]\\
+			a|n et b|n 
+			
+			=> le ppcm (a,b) = ab divise n.
+			
+			=> n $\equiv$ 0 [ab]
+			
+			=> [n] = 0\\
+	Si $n = p_{1}^{\alpha_{1}} ... p_{k}^{\alpha_{k}}$\\
+	$\phi(n) = \phi(p_1^{\alpha_1})... \phi(p_k^{\alpha_k})$
+	
+	$=p_1^{\alpha_1-1}(p_1-1) ... p_k^{\alpha_k-1}(p_k-1)$
+	
+	$=n(1-\frac{1}{p_1})...(1-\frac{1}{p_k})$
+\end{thm}
+
+\begin{prop}
+	Si $a\wedge b = 1$ alors $\phi(ab) = \phi(a)\phi(b)$
+\end{prop}
+
+
