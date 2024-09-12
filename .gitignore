@@ -301,3 +301,7 @@ TSWLatexianTemp*
 #*Notes.bib
 
 *.pdf
+
+#Added by myself
+gh-pages
+gh-pages.pub
